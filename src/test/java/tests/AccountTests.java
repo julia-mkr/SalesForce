@@ -16,9 +16,9 @@ public class AccountTests extends BaseTest {
         loginPage.login(LOGIN, PASSWORD);
         newAccountModalPage.createNewAccount(ACCOUNT_NAME, WEBSITE, PHONE, DESCRIPTION);
         pageOfCreatedAccount.clickOnDetailTab();
-        Assert.assertEquals(pageOfCreatedAccount.getNameOfCreatedAccount(), ACCOUNT_NAME);
+        Assert.assertEquals(pageOfCreatedAccount.getContentOfField("Account Name"), ACCOUNT_NAME);
         Assert.assertEquals(pageOfCreatedAccount.getWebsiteOfCreatedAccount(), WEBSITE);
-        Assert.assertEquals(pageOfCreatedAccount.getDescriptionOfCreatedAccount(), DESCRIPTION);
+        Assert.assertEquals(pageOfCreatedAccount.getContentOfField("Description"), DESCRIPTION);
         Assert.assertEquals(pageOfCreatedAccount.getPhoneOfCreatedAccount(), PHONE);
     }
 }

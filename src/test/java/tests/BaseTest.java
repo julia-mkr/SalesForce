@@ -21,7 +21,7 @@ public class BaseTest {
     public static final String LOGIN = "jtest2011-7knz@force.com";
     public static final String PASSWORD = "Gq2KPsXekAb*ySd%";
     public static final String URL = "https://tms3.my.salesforce.com";
-    public static final String HOME_PAGE_URL = URL + "/lightning/page/home";
+    public static final String HOME_PAGE_URL = "https://tms3.lightning.force.com/lightning/page/home";
 
     @BeforeMethod
     public void initTest() {

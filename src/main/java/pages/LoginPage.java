@@ -16,10 +16,17 @@ public class LoginPage extends BasePage {
     WebElement password;
     @FindBy(id = "Login")
     WebElement loginButton;
+    @FindBy(xpath = "//*[@title='My Accounts']")
+    WebElement myAccountsCart;
 
     public void login(String username, String password) {
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         loginButton.click();
+    }
+
+    public String getCurrentUrl() {
+        waitForVisibilityOfElement(myAccountsCart, 15);
+        return driver.getCurrentUrl();
     }
 }

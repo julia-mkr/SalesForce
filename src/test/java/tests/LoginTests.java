@@ -9,6 +9,6 @@ public class LoginTests extends BaseTest {
     public void loginToWebsiteTest() {
         loginPage.openPage(URL);
         loginPage.login(LOGIN, PASSWORD);
-        Assert.assertEquals(HOME_PAGE_URL, HOME_PAGE_URL);
+        Assert.assertEquals(loginPage.getCurrentUrl(), HOME_PAGE_URL);
     }
 }
