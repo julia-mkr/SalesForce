@@ -1,6 +1,7 @@
 package pages;
 
 import elements.*;
+import objects.Accounts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,12 +17,13 @@ public class NewAccountModalPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class,'forceActionButton')]//*[text()='Save']")
     WebElement saveButton;
 
-    public void createNewAccount(String accountName, String website, String phone, String description) {
+    public void createNewAccount(Accounts accounts) {
         openPage(NEW_ACCOUNT_URL);
-        new InputField(driver, "Account Name").writeTextInInputField(accountName);
-        new InputField(driver, "Website").writeTextInInputField(website);
-        new InputField(driver, "Phone").writeTextInInputField(phone);
-        new TextAreaForm(driver, "Description").writeTextInTextAreaField(description);
+        new InputField(driver, "Account Name").writeTextInInputField(accounts.getAccountName());
+        new InputField(driver, "Website").writeTextInInputField(accounts.getWebsite());
+        new InputField(driver, "Phone").writeTextInInputField(accounts.getPhone());
+        new TextAreaForm(driver, "Description").writeTextInTextAreaField(accounts.getDescription());
+        new DropDown(driver, "Industry").selectOption(accounts.getIndustryType());
         clickSave();
     }
 
